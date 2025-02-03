@@ -28,37 +28,29 @@ describe('SignUp Component', () => {
     expect(passwordLabel).toBeInTheDocument();
   });
 
-  // Case 3-> Testing confirm password label is rendered
-  test('should render confirm password input field in SignUp mode', () => {
+  // Case 3 -> Testing "Confirm Password" label is rendered
+  test('renders confirm password label correctly', () => {
     render(
       <BrowserRouter>
         <SignUp />
       </BrowserRouter>
     );
-  
-    const switchButton = screen.getByRole('button', { name: /Create Here/i });
-    fireEvent.click(switchButton);
-  
-    const confirmPasswordInput = screen.getByLabelText(/Confirm Password/i);
-    expect(confirmPasswordInput).toBeInTheDocument();
+
+    const confirmPasswordLabel = screen.getByLabelText(/Confirm Password/i);
+    expect(confirmPasswordLabel).toBeInTheDocument();
   });
-  
-  // Case 4-> Testing submit button text is correct (Login or Create Account)
-  test('should render the correct submit button text', () => {
+
+  // Case 4 -> Testing "Login Here" link is rendered
+  test('renders "Login Here" link correctly', () => {
     render(
       <BrowserRouter>
         <SignUp />
       </BrowserRouter>
     );
-  
-    const loginButton = screen.getByRole('button', { name: /Login/i });
-    expect(loginButton).toHaveTextContent('Login');
-  
-    const switchButton = screen.getByRole('button', { name: /Create Here/i });
-    fireEvent.click(switchButton);
-  
-    const signUpButton = screen.getByRole('button', { name: /Create Account/i });
-    expect(signUpButton).toHaveTextContent('Create Account');
+
+    const loginLink = screen.getByRole('link', { name: /Login Here/i });
+    expect(loginLink).toBeInTheDocument();
+    expect(loginLink).toHaveAttribute('href', '/login');
   });
   
 });

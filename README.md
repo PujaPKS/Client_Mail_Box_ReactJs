@@ -11,3 +11,4 @@ Firebase used for authentication and Firestore for data storage.
 Installed plugins: 
 1. npm install --save-dev vitest @testing-library/react @testing-library/jest-dom ---> for Testing
 2. Installing jsdom command ---> npm install --save-dev jsdom
+3. npm react-router-dom

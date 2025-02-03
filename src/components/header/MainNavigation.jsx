@@ -11,7 +11,7 @@ const MainNavigation = () => {
       <nav>
         <ul>
           <li>
-            <Link to='/auth'>Login</Link>
+            <Link to='/login'>Login</Link>
           </li>
           <li>
             <Link to='/profile'>Profile</Link>
