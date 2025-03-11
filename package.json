@@ -12,10 +12,16 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
+    "axios": "^1.8.2",
     "bootstrap": "^5.3.3",
+    "draft-js": "^0.11.7",
+    "jwt-decode": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.5"
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

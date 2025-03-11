@@ -12,3 +12,9 @@ Installed plugins:
 1. npm install --save-dev vitest @testing-library/react @testing-library/jest-dom ---> for Testing
 2. Installing jsdom command ---> npm install --save-dev jsdom
 3. npm react-router-dom
+4. Installing jsdom command ---> npm install --save-dev jsdom
+5. Installing draft-js command ---> npm install --save draft-js
+6. Installing react-draft-wysiwyg command ---> npm install --save react-draft-wysiwyg
+7. Installing jwt-decode command ---> npm install --save jwt-decode
+8. For installing redux and redux toolkit ----> npm install @reduxjs/toolkit react-redux
+9. For installing axios command ----> npm install axios

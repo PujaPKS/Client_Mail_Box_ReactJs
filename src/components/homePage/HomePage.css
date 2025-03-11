@@ -2,3 +2,97 @@
     margin-top: 8rem;
     margin-left: 1rem;
 }
+
+.home-container {
+    display: flex;
+    margin-top: 6rem;
+    height: 100vh;
+    /* background-color: white; */
+    position: relative;
+}
+
+.home-left{
+    width: 20%;
+    background-color: rgb(139, 139, 214);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    /* padding-left: 1rem; */
+}
+
+.home-left-top{
+    /* margin-top: 6rem; */
+    width: 100%;
+    height: 10%;
+    background-color: rgb(139, 139, 214);
+    /* display: flex; */
+    align-items: center;
+    position: absolute;
+}
+
+.home-left-top-button{
+    margin-top: 7rem;
+    margin-left: 5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-color: rgb(131, 131, 167);
+    color: white;
+    border-radius: 2%;
+    border: 2px solid black;
+    padding: 8px;
+}
+
+.home-left-top-button:hover {
+    background-color: white;
+    color: rgb(139, 139, 214);
+}
+
+.home-right{
+    width: 80%;
+    /* background-color: rgb(139, 139, 214); */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    padding-top: 4rem;
+}
+
+.home-message{
+    font-size: 1.5rem;
+    background-color: blueviolet;
+    width: 78.95vw;
+}
+
+.compose-input {
+  width: 75vw;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.compose-mail-container {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
+}
+
+.compose-container {
+    border: 1px solid black;
+}
+
+.compose-header {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: violet;
+    height: 2rem;
+}
+
+.compose-action {
+    background-color: white;
+}

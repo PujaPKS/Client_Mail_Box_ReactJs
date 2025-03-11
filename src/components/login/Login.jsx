@@ -1,7 +1,9 @@
 import { useContext, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
-import AuthContext from '../context/AuthContext';
+// import AuthContext from '../context/AuthContext';
+import { login } from '../../store/slice/authSlice'; // ✅ Imported login action
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -9,7 +11,8 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(AuthContext);
+  const dispatch = useDispatch(); // ✅ Used useDispatch hook to get the dispatch function
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
@@ -20,7 +23,7 @@ const Login = () => {
 
     setIsLoading(true);
     console.log('Logging in:', enteredEmail);
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBTuARjfplXy5aA6LBws6I4kTS42MpEa-A';
+    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDAyB2ymH0uyuUvl1s6MxvOSICKWhFgSbo';
 
     fetch(url, {
       method: 'POST',
@@ -33,15 +36,15 @@ const Login = () => {
         'Content-Type': 'application/json',
       },
     })
-    .then((res) => {
-      setIsLoading(false);
+      .then((res) => {
+        setIsLoading(false);
         if (res.ok) {
           return res.json().then((data) => {
-            authCtx.login(data.idToken);
-            navigate('/home');
+            // authCtx.login(data.idToken); // ✅ Store the token in AuthContext
+            dispatch(login(data.idToken)); // ✅ Store the token in Redux
+            navigate('/home'); // ✅ Redirect to home after successful login
           });
-        } 
-        else {
+        } else {
           return res.json().then((data) => {
             let errorMesssage = 'Authentication Failed!';
             if (data && data.error && data.error.message) {
@@ -51,15 +54,16 @@ const Login = () => {
             alert(errorMesssage);
           });
         }
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         setIsLoading(false);
-        setErrorMessage('Something went wrong!');
-        alert('Something went wrong!');
-    });
-};
+        setErrorMessage('Something went wrong!'); // Handle network errors
+        alert('Something went wrong!'); // Alert for network errors
+        console.log(errorMessage);
+      });
+  };
 
-return (
+  return (
     <section>
       <form onSubmit={submitHandler}>
         <div className="auth">
@@ -78,6 +82,7 @@ return (
           </div>
         </div>
 
+        {/* ✅ Link to Signup Page instead of button */}
         <div className="submit">
           <p>
             Don’t have an account?{' '}
